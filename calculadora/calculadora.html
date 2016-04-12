@@ -81,6 +81,19 @@
           $("#pantalla").val(res);
         });
 
+        //funcion raiz:
+        $("#raiz").click(function(){
+          try{
+            if(isNaN($("#pantalla").val())){var res = "ERROR";}
+            else{
+              var x = $("#pantalla").val();
+              var res = Math.sqrt(x);
+            }
+          }catch(error){var res = "ERROR";}//control de errores
+          $("#pantalla").val(res);
+        });
+
+
         //funcion inversa:
         $("#inverso").click(function(){
           try{
