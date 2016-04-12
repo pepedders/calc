@@ -81,6 +81,18 @@
           $("#pantalla").val(res);
         });
 
+        //funcion cubo:
+        $("#cubo").click(function(){
+          try{
+            if(isNaN($("#pantalla").val())){var res = "ERROR";}
+            else{
+              var x = $("#pantalla").val();
+              var res = x*x*x;
+            }
+          }catch(error){var res = "ERROR";}//control de errores
+          $("#pantalla").val(res);
+        });
+
         //funcion raiz:
         $("#raiz").click(function(){
           try{
@@ -178,7 +190,7 @@
             </div>
             <div id="teclado">
               <button id="cuadrado" class="tecla-s">x<sup>2</sup></button>
-              <button id="inverso" class="tecla-s">1/x</button>
+              <button id="cubo" class="tecla-s">x<sup>3</sup></button>
               <button id="raiz" class="tecla-s">sqrt(x)</button>
             </div>
             <div id="teclado">
