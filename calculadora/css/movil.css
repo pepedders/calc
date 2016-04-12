@@ -1,0 +1,32 @@
+  .hideMobile{
+    display: none;
+  }
+
+  .hideDesktop{
+    display: initial;
+  }
+
+  #calculadora{
+    min-width: 90%;
+    min-height: 90%;
+  }
+  
+  input{
+    height: 10vh;
+    width: 40vw;
+    margin: 3vh;
+    font-size: 8vh;
+  }
+  
+  .tecla-s{
+    min-height: 10vh;
+    width: 10vw;
+    font-size: 40px;
+  }
+  
+  .tecla-l{
+    min-width: 20vw;
+    min-height: 10vh;
+    font-size: 40px;
+  }
+  

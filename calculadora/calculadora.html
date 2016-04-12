@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>CORE 2016 P3</title>
+      <meta charset="UTF-8" >
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" media="only screen and (max-device-width: 480px)" type="text/css" href="css/movil.css">
+      <link rel="stylesheet" media="only screen and (min-width: 600px) and (min-device-width: 481px)" type="text/css" href="css/normal.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+      <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300italic,300,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+      <script type="text/javascript">
+
+      /*
+      Resto de funciones que se llaman a través de eventos.
+      */
+
+      $(document).ready(function(){
+
+        var acc = 0;
+        var op = "";
+
+        $("#pantalla").click(function(){
+          $("#pantalla").val("");
+        });
+
+
+        /****************************************************************
+        ************* FUNCIONES DE VARIOS OPERANDOS *********************
+        *****************************************************************/
+
+        $("#suma").click(function(){
+          if(isNaN($("#pantalla").val())){
+            $("#pantalla").val("ERROR");
+            acc = 0; op = "";
+          }else{
+            acc += +$("#pantalla").val();
+            op = "+";
+          }
+        });
+
+        $("#resta").click(function(){
+          if(isNaN($("#pantalla").val())){
+            $("#pantalla").val("ERROR");
+            acc = 0; op = "";
+          }else{
+            acc += +$("#pantalla").val();
+            op = "-";
+          }
+        });
+
+        $("#igual").click(function(){
+          if(isNaN($("#pantalla").val())){
+            $("#pantalla").val("ERROR");
+            acc = 0; op = "";
+          }else{
+            if(op === "+"){
+              $("#pantalla").val(+acc + +$("#pantalla").val());
+              acc = 0;
+            }
+            if(op === "-"){
+              $("#pantalla").val(+acc - +$("#pantalla").val());
+              acc = 0;
+            }
+          }
+        });
+
+        /****************************************************************
+        ****************** FUNCIONES DE UN OPERANDO *********************
+        *****************************************************************/
+
+        //funcion cuadrado:
+        $("#cuadrado").click(function(){
+          try{
+            if(isNaN($("#pantalla").val())){var res = "ERROR";}
+            else{
+              var x = $("#pantalla").val();
+              var res = x*x;
+            }
+          }catch(error){var res = "ERROR";}//control de errores
+          $("#pantalla").val(res);
+        });
+
+        //funcion inversa:
+        $("#inverso").click(function(){
+          try{
+            if(isNaN($("#pantalla").val())){var res = "ERROR";}
+            else{
+              var x = $("#pantalla").val();
+              var res = 1/x;
+            }
+          }catch(error){var res = "ERROR";}//control de errores
+          $("#pantalla").val(res);
+        });
+
+
+        //funcion factorial:
+        $("#factorial").click(function(){
+          var res = 1; //devolvera 1 si x=0 (0! = 1)
+          try{
+            if(isNaN($("#pantalla").val()) || $("#pantalla").val() !== Math.floor($("#pantalla").val())){
+              var res = "ERROR";
+            }else{
+              var x = $("#pantalla").val();
+              if(x < 0){res = "ERROR";}
+              else{
+                while(x !== 0){ //algoritmo para hallar el factorial.
+                  res = res * x;
+                  x--;}
+                }
+              }
+          }catch(error){res = "ERROR";}//control de errores
+          $("#pantalla").val(res);
+        });
+
+
+        //funcion parte ent:
+        $("#pentera").click(function(){
+          try{
+            if(isNaN($("#pantalla").val())){var res = "ERROR";}
+            else{
+              var x = $("#pantalla").val();
+              var res = Math.floor(x);
+            }
+          }catch(error){var res = "ERROR";}//contro de errores
+          $("#pantalla").val(res);
+        });
+
+
+        //funcion potencia2:
+        $("#potencia2").click(function(){
+          try{
+            if(isNaN($("#pantalla").val())){var res = "ERROR";}
+            else{
+              var x = $("#pantalla").val();
+              var res = Math.pow(2, x);
+            }
+          }catch(error){var res = "ERROR";}
+          $("#pantalla").val(res);
+        });
+
+
+        //funcion limpiar: borra el contenido de la pantalla al pulsar
+        //esta tecla.
+        $("#limpiar").click(function(){
+            $("#pantalla").val("");
+            acc = 0;
+            op = "";
+        });
+      });
+
+    </script>
+  </head>
+  <body>
+    <header>
+      <h5>Buenos días, bienvenido a la calculadora de Pedro Rodriguez Alia (pedro.rodalia@alumnos.upm.es)</h5>
+    </header>
+    <section id="main">
+      <div style="text-align: center">
+        <div id="calculadora">
+            <p>Número: <input type="text" id="pantalla"></input></p>
+            <div id="teclado">
+              <button id="suma" class="tecla-s">+</button>
+              <button id="resta" class="tecla-s">-</button>
+            </div>
+            <div id="teclado">
+              <button id="cuadrado" class="tecla-s">x<sup>2</sup></button>
+              <button id="inverso" class="tecla-s">1/x</button>
+              <button id="raiz" class="tecla-s">sqrt(x)</button>
+            </div>
+            <div id="teclado">
+              <button id="factorial" class="tecla-s">x!</button>
+              <button id="pentera" class="tecla-s">ent(x)</button>
+              <button id="potencia2" class="tecla-s">2<sup>x</sup></button>
+              <button id="limpiar" class="tecla-s">CL</button>
+            </div>
+            <div id="teclado">
+              <button id="igual" class="tecla-s">=</button>
+            </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p><b>Pedro Rodriguez Alia</b> <em><a href="mailto:pedro.rodalia@alumnos.upm.es">pedro.rodalia@alumnos.upm.es</a></em></p>
+      <p id="fecha"><script>document.write(new Date());</script></p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+body{
+  font: 300 18px 'Merriweather',serif;
+  color: #1A1A1A;
+  line-height: 4em;
+  font-size: 18px;
+  font-weight: 300;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0% 10% 2% 10%;
+}
+header{
+  text-align: center;
+  font-size: 2.5em;
+}
+footer{
+  text-align: center;
+}
+a{
+  color: black;
+}
+h4{
+  text-align: center;
+  margin-bottom: 10vh;
+  color: #11B9CF;
+}
+input{
+  margin: 5px;
+  font-size: 1.2em;
+  border-radius: 0px;
+  text-align: center;
+}
+
+
+
+#calculadora{
+  border: 1px solid black;
+  max-width: 400px;
+  min-height: 100px;
+  display: inline-block;
+  padding: 0.5% 1% 0.5% 1%;
+  border-radius: 0px;
+}
+#teclado{
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+.tecla-s{
+  background-color: white;
+  width: 30%;
+  height: 40px;
+  padding: 3px;
+  margin: 3px 1% 3px 1%;
+  text-align: center;
+  border: 1px solid black;
+  flex-grow: 1;
+  border-radius: 0px;
+}
+.tecla-s:hover{
+  background-color: #11B9CF;
+  color:whitesmoke;
+  cursor: pointer;
+}
+ .tecla-s:active{
+  background-color: gray;
+  outline: none;
+}
